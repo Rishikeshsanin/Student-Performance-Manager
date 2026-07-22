@@ -1,94 +1,439 @@
-/* General Styling */
+/* ================================
+   STUDENT MANAGEMENT SYSTEM
+   Modern Responsive CSS
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f3f6fb;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text-primary: #172033;
+    --text-secondary: #697386;
+    --border: #e3e8f0;
+
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --primary-light: #eef2ff;
+
+    --success: #15803d;
+    --success-light: #ecfdf3;
+
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+    --danger-light: #fef2f2;
+
+    --shadow-small: 0 6px 18px rgba(31, 41, 55, 0.06);
+    --shadow-large: 0 18px 45px rgba(31, 41, 55, 0.1);
+
+    --radius-small: 10px;
+    --radius-medium: 16px;
+    --radius-large: 24px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif; /* Clean, sans-serif font */
-    margin: 0; /* Removes default margins */
-    padding: 0; /* Removes default padding */
-    background-color: #f5f5f5; /* Light gray background for a clean look */
+    min-height: 100vh;
+    margin: 0;
+    padding: 35px;
+    color: var(--text-primary);
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(79, 70, 229, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(59, 130, 246, 0.1),
+            transparent 30%
+        ),
+        var(--background);
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
 
-
-  
-@keyframes example {
-    0%{left: 0px;top: 0px; color: black; font-size: 30px;}
-    25%{left: 200px;top: 0px; color: red; font-size: 50px;}
-    50%{left: 200px;top: 200px; color: blue;font-size: 70px;}
-    75%{left: 0px;top: 200px; color: green; font-size: 50px;}
-    100%{left: 0px;top: 0px; color: violet;font-size: 30px;}
-}
+/* ================================
+   MAIN TITLE
+================================ */
 
 h1 {
-    text-align: center; /* Centers the heading */
-    color: #333; /* Dark gray text color */
-    
-    animation: example 3s linear infinite;
+    max-width: 1200px;
+    margin: 0 auto 28px;
+    padding: 34px 28px;
+    color: #ffffff;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #4f46e5 55%,
+            #6366f1
+        );
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-large);
 }
 
+/* ================================
+   SECTION HEADINGS
+================================ */
+
+h2 {
+    max-width: 1200px;
+    margin: 32px auto 14px;
+    color: var(--text-primary);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+}
+
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: -4px;
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+/* ================================
+   FORMS
+================================ */
+
 form {
-    max-width: 500px; /* Sets maximum width for the form */
-    margin: 20px auto; /* Centers the form horizontally */
-    padding: 15px; /* Adds padding around the form */
-    background-color: #fff; /* White background for contrast */
-    border: 1px solid #ddd; /* Light border for separation */
-    border-radius: 5px; /* Rounds the corners for aesthetics */
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 26px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-small);
+    backdrop-filter: blur(12px);
 }
 
 label {
-    display: block; /* Ensures labels occupy a whole line */
-    font-weight: bold; /* Bolds the text for emphasis */
-    margin-bottom: 5px; /* Adds space below the label */
+    display: inline-block;
+    margin-bottom: 7px;
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-weight: 750;
 }
 
 input {
-    width: 100%; /* Makes input fields take the whole width */
-    padding: 8px; /* Adds padding within the input */
-    margin-bottom: 10px; /* Spacing between inputs */
-    border: 1px solid #ccc; /* Light border color */
-    border-radius: 5px; /* Rounds the corners */
+    width: 100%;
+    margin: 7px 0 17px;
+    padding: 13px 15px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
 }
 
-button {
-    width: 100%; /* Makes the button span the width */
-    padding: 10px; /* Adds padding */
-    background-color: #007bff; /* Blue background color */
-    color: white; /* White text */
-    border: none; /* Removes borders */
-    border-radius: 5px; /* Rounds the corners */
-    font-weight: bold; /* Bolds the text */
-    cursor: pointer; /* Changes cursor to pointer on hover */
+input::placeholder {
+    color: #98a2b3;
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+input:hover {
+    border-color: #c9d2e0;
 }
 
-/* Table Styling */
-table {
-    width: 80%; /* Sets the table width */
-    margin: 20px auto; /* Centers the table */
-    border-collapse: collapse; /* Removes spacing between cells */
+input:focus {
+    background: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
 }
 
-th, td {
-    padding: 10px; /* Adds padding within cells */
-    text-align: center; /* Centers the text */
-    border-bottom: 1px solid #ddd; /* Adds a light border */
+/* ================================
+   SUBMIT BUTTON
+================================ */
+
+input[type="submit"] {
+    width: auto;
+    min-width: 170px;
+    margin: 7px 0 0;
+    padding: 13px 22px;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #6366f1
+        );
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+    box-shadow: 0 9px 20px rgba(79, 70, 229, 0.22);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
-th {
-    background-color: #f2f2f2; /* Light background for headers */
-    font-weight: bold; /* Bolds the text in headers */
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-dark),
+            var(--primary)
+        );
+    box-shadow: 0 13px 25px rgba(79, 70, 229, 0.3);
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Alternates row background for readability */
+input[type="submit"]:active {
+    transform: translateY(0);
 }
+
+/* ================================
+   STUDENT LIST
+================================ */
+
+ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    position: relative;
+    margin-bottom: 13px;
+    padding: 20px 22px;
+    color: var(--text-primary);
+    line-height: 1.7;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    box-shadow: var(--shadow-small);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-3px);
+    border-color: #cdd5e1;
+    border-left-color: #6366f1;
+    box-shadow: 0 15px 32px rgba(31, 41, 55, 0.1);
+}
+
+/* ================================
+   LINKS AND DELETE BUTTONS
+================================ */
 
 a {
-    text-decoration: none; /* Removes underlines from links */
-    color: #007bff; /* Blue link color */
+    display: inline-block;
+    padding: 8px 13px;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 750;
+    text-decoration: none;
+    background: var(--primary-light);
+    border-radius: 8px;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 a:hover {
-    text-decoration: underline; /* Underlines on hover */
+    color: #ffffff;
+    background: var(--primary);
+    transform: translateY(-1px);
+}
+
+/*
+The existing project deletes students using a link.
+This styles links containing delete routes in red.
+*/
+
+a[href*="delete"] {
+    color: var(--danger);
+    background: var(--danger-light);
+}
+
+a[href*="delete"]:hover {
+    color: #ffffff;
+    background: var(--danger);
+}
+
+/* ================================
+   TABLE SUPPORT
+   Works if your HTML uses a table
+================================ */
+
+table {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-small);
+}
+
+thead {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            var(--primary)
+        );
+}
+
+th,
+td {
+    padding: 15px 17px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+td {
+    color: var(--text-primary);
+    font-size: 0.92rem;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background: var(--surface-soft);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ================================
+   OPTIONAL CONTAINERS
+================================ */
+
+.container,
+.content,
+.main-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+}
+
+.card {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-small);
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    max-width: 1200px;
+    margin: 45px auto 0;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding: 18px;
+    }
+
+    h1 {
+        padding: 27px 18px;
+        border-radius: 18px;
+    }
+
+    h2 {
+        margin-top: 25px;
+    }
+
+    form {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    li {
+        padding: 17px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        padding: 23px 14px;
+        font-size: 1.85rem;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+    }
+
+    form {
+        padding: 16px;
+    }
+
+    input {
+        padding: 12px;
+    }
+
+    li {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
 }
