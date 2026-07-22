@@ -1,4 +1,4 @@
-<img width="381" height="125" alt="image" src="https://github.com/user-attachments/assets/fa0b1e1c-d8fe-4ecb-999e-3982a4047774" /># 🎓 Student Performance Manager
+# 🎓 Student Performance Manager
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1ebe7d2-a498-45de-836e-40f7ffe018a4" />
 <img width="700" height="191" alt="image" src="https://github.com/user-attachments/assets/829618ab-efcb-4863-9319-0bc0b3a93c20" />
 
